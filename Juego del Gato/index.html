@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Juego del Gato</title>
+	<style>
+		body
+		{
+			background: #FFFF99;
+			font-size: 16px;
+			margin: 0 auto;
+			text-align: center;
+			width: 1024px;
+		}
+		#ContJuego
+		{
+			font-size: 1.5em;
+			color: #990066;
+		}
+		#divX,#divO
+		{	
+			height: 350px;
+			margin-left: 5px;
+			margin-top: 70px;
+			padding-bottom: 10px;
+			width: 250px;
+		}
+		#divO
+		{
+			float: right;
+			margin-top: -418px;
+		}
+		#div1,#div2,#div3,#div4,#div5,#div6,#div7,#div8,#div9
+		{
+			float: left;
+			height: 150px;
+			position: relative;
+			width: 150px;
+		}
+		#div1
+		{
+			border-bottom: 3px solid #990066;
+			border-right: 3px solid #990066;
+			margin-left: 315px;
+			margin-top: -400px;
+		}
+		#div2
+		{
+			border-bottom: 3px solid #990066;
+			border-left: 3px solid #990066;
+			border-right: 3px solid #990066;
+			margin-left: 465px;
+			margin-top: -400px;
+		}
+		#div3
+		{
+			border-bottom: 3px solid #990066;
+			border-left: 3px solid #990066;
+			margin-left: 618px;
+			margin-top: -400px;
+		}
+		#div4
+		{
+			border-bottom: 3px solid #990066;
+			border-right: 3px solid #990066;
+			border-top: 3px solid #990066;
+			margin-left: 315px;
+			margin-top: -250px;
+		}
+		#div5
+		{
+			border: 3px solid #990066;
+			margin-left: 465px;
+			margin-top: -250px;
+		}
+		#div6
+		{
+			border-bottom: 3px solid #990066;
+			border-left: 3px solid #990066;
+			border-top: 3px solid #990066;
+			margin-left: 618px;
+			margin-top: -250px;
+		}
+		#div7
+		{
+			border-right: 3px solid #990066;
+			border-top: 3px solid #990066;
+			margin-left: 315px;
+			margin-top: -97px;
+		}
+		#div8
+		{
+			border-right: 3px solid #990066;
+			border-left: 3px solid #990066;
+			border-top: 3px solid #990066;
+			margin-left: -3px;
+			margin-top: -97px;
+		}
+		#div9
+		{
+			border-left: 3px solid #990066;
+			border-top: 3px solid #990066;
+			margin-left: -3px;
+			margin-top: -97px;
+		}
+		img
+		{
+			height: 120px;
+			width: 120px;
+		}
+		.letraGrande
+		{
+			font-size: 3em;
+		}
+		.letraMediana
+		{
+			font-size: 1.5em;
+		}
+		.white
+		{
+			
+  			color: #990066;  
+		}
+		.color
+		{
+			color: #14BDAC;
+		}
+		.nito
+		{
+			font-weight: bold;
+		}
+	</style>
+</head>
+<body>
+	<header>
+			<span class="letraGrande white nito">JUEGO DEL GATO</span> <br>
+			<span class="letraMediana color nito">Contador Juego</span> <div id="ContJuego" class="nito"></div><br>
+			<span class="letraMediana color nito">Contador Jugador</span> <div id="ContPlayer"></div>	
+	</header>
+	<div id="divX" ondragover="allowDrop(event)" ondrop="drop(event)">
+		<img src="img/X.png" id="arrastre1" height="45" width="65" ondragstart="drag(event)">
+		<img src="img/X.png" id="arrastre2" height="45" width="65" ondragstart="drag(event)">
+		<img src="img/X.png" id="arrastre3" height="45" width="65" ondragstart="drag(event)">
+		<img src="img/X.png" id="arrastre4" height="45" width="65" ondragstart="drag(event)">
+		<img src="img/X.png" id="arrastre5" height="45" width="65" ondragstart="drag(event)">
+		<img src="img/X.png" id="arrastre6" height="45" width="65" ondragstart="drag(event)">	
+	</div >	
+		
+	<div id="div1" ondragover="allowDrop(event)" ondrop="drop(event)"></div>
+	<div id="div2" ondragover="allowDrop(event)" ondrop="drop(event)"></div>
+	<div id="div3" ondragover="allowDrop(event)" ondrop="drop(event)"></div>
+	<div id="div4" ondragover="allowDrop(event)" ondrop="drop(event)"></div>
+	<div id="div5" ondragover="allowDrop(event)" ondrop="drop(event)"></div>
+	<div id="div6" ondragover="allowDrop(event)" ondrop="drop(event)"></div>
+	<div id="div7" ondragover="allowDrop(event)" ondrop="drop(event)"></div>
+	<div id="div8" ondragover="allowDrop(event)" ondrop="drop(event)"></div>
+	<div id="div9" ondragover="allowDrop(event)" ondrop="drop(event)"></div>
+	<div id="divO" ondragover="allowDrop(event)" ondrop="drop(event)">
+		<img src="img/O.png" id="arrastre7" height="45" width="65" ondragstart="drag(event)">
+		<img src="img/O.png" id="arrastre8" height="45" width="65" ondragstart="drag(event)">
+		<img src="img/O.png" id="arrastre9" height="45" width="65" ondragstart="drag(event)">
+		<img src="img/O.png" id="arrastre10" height="45" width="65" ondragstart="drag(event)">
+		<img src="img/O.png" id="arrastre11" height="45" width="65" ondragstart="drag(event)">
+		<img src="img/O.png" id="arrastre12" height="45" width="65" ondragstart="drag(event)">
+	</div>
+	<script>
+		function allowDrop(ev)
+		{
+			//Permite que un objeto caiga sobre el
+			ev.preventDefault();
+		}
+		function drag(ev)
+		{
+			//Aqui guardamos en el contenedor
+			ev.dataTransfer.setData("text",ev.target.id);
+		}
+		function drop(ev)
+		{
+			ev.preventDefault();
+			
+				var data = ev.dataTransfer.getData("text");
+				ev.target.appendChild(document.getElementById(data));
+			
+		}
+		var n = 0;
+		var l = document.getElementById("ContJuego");
+		window.setInterval(function()
+		{
+  			l.innerHTML = n;
+  			n++;
+		},1000);
+
+		/*var CJ,CP;
+  		function iniciarWorker()
+  		{
+  			if(typeof(CJ)== "undefined")
+  			{
+  				CJ=new Worker("eventos.js");
+  				CJ.onmessage = function(event)
+  				{
+  					document.getElementById("ContJuego").innerHTML=event.data;
+  				}  	
+  			}
+  			else
+  			{
+  				alert("El navegador no soporta WebWorkers")
+  			}
+  		}
+  		function pararWorker()
+		{
+			w1.terminate();
+			w1=undefined;
+		}*/
+	</script>
+</body>
+</html>
